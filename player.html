@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="playtracker">
+<div ng-if="player" class="container">
+    <h2 class="display-4 text-center">Player Details/Statistics</h2>
+    <div class="card mt-3">
+        <div class="card-body text-center">
+            <h4>{{ player.playerName }}</h4>
+            <img ng-src="images/players-portraits/{{ player.playerId }}.jpg" class="img-fluid rounded mx-auto d-block bg-dark">
+            <h5>#{{ player.playerNumber }}</h5>
+            <h5>Team: {{ player.teamName }}</h5>
+            <h5>Location: {{ player.teamLocation }}</h5>
+        </div>
+    </div>
+    <div class="table-responsive mt-3">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID #</th>
+                    <th scope="col">Games Played</th>
+                    <th scope="col">Points Per Game</th>
+                    <th scope="col">Assists Per Game</th>
+                    <th scope="col">Rebounds Per Game</th>
+                    <th scope="col">Steals Per Game</th>
+                    <th scope="col">Blocks Per Game</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{ player.playerId }}</th>
+                    <td>{{ player.gamesPlayed }}</td>
+                    <td>{{ player.points }} ppg</td>
+                    <td>{{ player.assists }} apg</td>
+                    <td>{{ player.rebounds }} rpg</td>
+                    <td>{{ player.steals }} spg</td>
+                    <td>{{ player.blocks }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer bg-dark text-center">
+        <a href="#!/search" class="btn btn-secondary bg-light font-weight-bold text-dark">Back to Search</a>
+        <a href="#!/update/{{ player.playerId }}" class="btn btn-secondary bg-success font-weight-bold text-dark">Update</a>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

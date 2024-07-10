@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playtracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="searchController.js"></script>
+    <script src="updateController.js"></script>
+    <style>
+        body {
+            background: url(images/misc_images/best-nba-players-ever.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .opaque-box {
+            background-color: rgba(255, 255, 255, 0.5); /* White background with 80% opacity */
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .opaque-table {
+            background-color: rgba(255, 255, 255, 0.9); /* White background with 80% opacity */
+        }
+    </style>
+</head>
+<body ng-app="playtracker" ng-controller="searchController">
+<div ng-if="players" class="text-center opaque-box">
+    <h1 class="display-4 text-center font-weight-bold">All Players</h1>
+    <div class="card-body">
+        <div class="card-footer bg-warning">
+            Please select a player for detailed stats or update/delete
+        </div>
+    </div>
+    <div class="col-md-4 opaque-box mx-auto mb-2">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Id, Name, Number, Team, Position" ng-model="searchValue">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" ng-click="restorePlayers()">Restore Players</button>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover opaque-table">
+        <thead class="thead-light">
+            <tr>
+                <th ng-click="orderByColumn('playerId')"><button class="btn btn-success">Player ID</button></th>
+                <th ng-click="orderByColumn('playerName')"><button class="btn btn-success">Name</button></th>
+                <th ng-click="orderByColumn('playerNumber')"><button class="btn btn-success">Number</button></th>
+                <th ng-click="orderByColumn('teamName')"><button class="btn btn-success">Team</button></th>
+                <th ng-click="orderByColumn('playerPosition')"><button class="btn btn-success">Position</button></th>
+            </tr>
+        </thead>
+        <tbody ng-show="!showSpinner">
+            <tr ng-repeat="player in players | filter:searchValue | orderBy:orderByValue:reverse" ng-click="goToPlayerView(player.playerId)">
+                <td>{{ player.playerId }}</td>
+                <td>{{ player.playerName }}</td>
+                <td>#{{ player.playerNumber }}</td>
+                <td>{{ player.teamName }}</td>
+                <td>{{ player.playerPosition }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

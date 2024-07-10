@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+    body {
+        background: url(images/misc_images/dark-bball-background.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .opaque-box {
+        background-color: rgba(255, 255, 255, 0.85); /* White background with 85% opacity */
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .opaque-table {
+        background-color: rgba(255, 255, 255, 0.85); /* White background with 85% opacity */
+    }
+    .title-font {
+        font-family: fantasy, serif;
+    }
+</style>
+<body>
+
+
+<!-- Welcome Section -->
+<div class="jumbotron text-center opaque-box w3-center w3-padding-64 display-4">
+    <span class="w3-xxxlarge title-font">Welcome To Playtracker</span>
+</div>
+
+<!-- About Section -->
+<section class="w3-row-padding">
+    <div class="w3-half">
+      <section id="about" class="w3-container w3-center w3-content opaque-box" style="max-width:600px">
+        <h2 class="font-weight-bold">What is Playtracker?</h2>
+        <p class="w3-justify">Playtracker is the best tool for tracking NBA stats. Whether you're a spectator, coach, or player, Playtracker provides extensive data and insights on the NBA.
+           From tracking individual player performance to assessing team dynamics, Playtracker gives you the tools you need to stay informed and make data-driven choices.</p>
+      </section>
+    </div>
+    <div class="w3-half">
+      <section id="how-it-works" class="w3-container w3-center w3-content opaque-box" style="max-width:600px">
+        <h2 class="font-weight-bold">How Playtracker Works</h2>
+        <p class="w3-justify">Playtracker combines data from a variety of sources to give us current, up-to-date statistics and insights about NBA players and teams.
+             Users may look for individual player statistics, establish and manage player profiles, and update player information.
+             The platform has a simple UI and sophisticated analytical features to assist users make educated decisions based on accurate data.</p>
+      </section>
+    </div>
+</section>
+    
+<!-- Slide Show -->
+<section>
+  <img class="mySlides img-fluid" src="/images/misc_images/cleveland2016parade.jpg" style="width:100%">
+  <img class="mySlides img-fluid" src="/images/misc_images/MentorNStudent.png" style="width:90%">
+  <img class="mySlides img-fluid" src="/images/misc_images/kobechamp.png" style="width:100%">
+</section>
+
+<!-- Features Section -->
+<section id="features" class="w3-row-padding w3-center w3-light-grey opaque-box">
+    <article class="w3-third">
+      <p class="feature-heading font-weight-bold">Search</p>
+      <img src="/images/misc_images/smallsearch.png" alt="Feature 1" style="width:70%">
+      <p class="feature-text">Search, Read, Look up whatever Statistics you would like in our automatically adjusting search bar!</p>
+    </article>
+    <article class="w3-third">
+      <p class="feature-heading font-weight-bold">Create</p>
+      <img class="img-fluid" src="/images/misc_images/createplayerexample.jpg" alt="Feature 2" style="width:140%">
+      <p class="feature-text">Ever wanted to create your own player and see yourself right alongside your favorite players? Now you can!</p>
+    </article>
+    <article class="w3-third">
+      <p class="feature-heading font-weight-bold">Update</p>
+      <img src="/images/misc_images/superteampic.jpg" alt="Feature 3" style="width:100%">
+      <p class="feature-text">Favorite player get traded to a different team? Someone sell your parlay and now you don't want them to sell your team a victory? Update their info! Change their name, team, number, etc!</p>
+    </article>
+  </section>
+  
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 5000);
+}
+</script>
+
+</body>
+</html>
