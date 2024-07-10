@@ -1,2 +1,2 @@
-# main.hunna
+# Projects
 just my coding files.
